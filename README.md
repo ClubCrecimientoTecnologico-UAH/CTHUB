@@ -45,8 +45,8 @@ Desarrollar una plataforma web para centralizar la gestión de contenidos, activ
 ## Instalación y Configuración
 1. **Clonar el repositorio:**
    ```sh
-   git clone https://github.com/usuario/proyecto_club.git
-   cd proyecto_club
+   git clone https://github.com/ClubCrecimientoTecnologico-UAH/CTHUB
+   cd CTHUB
    ```
 
 2. **Configurar el Backend (FastAPI):**
