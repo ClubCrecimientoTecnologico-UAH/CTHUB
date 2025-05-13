@@ -1,81 +1,66 @@
-# CTHUB
+# CTHUB - Plataforma del Club de Crecimiento Tecnológico
 
-## Descripción del Proyecto
-El Club de Crecimiento Tecnológico busca fomentar el aprendizaje y la colaboración en el ámbito tecnológico. Este proyecto tiene como objetivo desarrollar una plataforma web que permita a los usuarios acceder a contenido exclusivo del club, como cursos, dinámicas y actividades, además de mantenerlos informados con una sección de noticias.
+## 📌 Descripción del Proyecto
+Plataforma web multifuncional para el Club de Crecimiento Tecnológico de la UAH que combina:
+1. **Sitio informativo público** (landing page + blog de noticias)
+2. **Plataforma privada de gestión educativa** (cursos, tareas y seguimiento)
 
-## Tecnologías Utilizadas
-- **Backend**: FastAPI
-- **Frontend**: React
-- **Base de Datos**: PostgreSQL
-- **Autenticación**: JWT
-- **Despliegue**: Docker, Nginx
+## 🚀 Fases de Desarrollo
 
-## Objetivos del Proyecto
-### Objetivo General
-Desarrollar una plataforma web para centralizar la gestión de contenidos, actividades y noticias del Club de Crecimiento Tecnológico.
+### Fase 1: Landing Page Informativa (En desarrollo)
+- Presentación del club (qué es, quiénes somos)
+- Misión, visión y objetivos
+- Próximos eventos
+- Formulario de contacto/registro
 
-### Objetivos Específicos
-- Permitir el registro e inicio de sesión de usuarios (miembros del club).
-- Gestionar contenido educativo, como cursos y actividades, de forma organizada.
-- Facilitar la entrega y revisión de tareas o dinámicas asignadas por los administradores del club.
-- Incorporar una sección de noticias para anunciar eventos, nuevas dinámicas y actualizaciones del club.
-- Proveer una experiencia de usuario moderna e intuitiva con interfaces responsivas.
+**Tecnología:** Astro (para óptimo SEO y rendimiento)
 
-## Características del Proyecto
-### 1. Autenticación de Usuarios
-- Registro, inicio de sesión y recuperación de contraseñas.
-- Roles de usuario: Administrador y Usuario Miembro.
+### Fase 2: Módulo de Noticias (Próxima fase)
+- Blog de noticias del club y la universidad
+- Categorías: Eventos, Talleres, Convocatorias
+- Panel administrativo para publicación
 
-### 2. Gestión de Cursos y Actividades
-- Los administradores podrán crear y gestionar cursos y actividades.
-- Los usuarios podrán visualizar contenido asociado a los cursos en los que estén inscritos.
+### Fase 3: Plataforma Educativa (Futuro)
+- Gestión de cursos (inscripción, horarios, materiales)
+- Sistema de tareas integrado (estilo Trello/Jira)
+- Dashboard de progreso para usuarios
+- Entrega y calificación de actividades
 
-### 3. Entrega de Tareas
-- Sistema para que los usuarios puedan subir archivos o completar actividades asignadas.
-- Los administradores podrán revisar y calificar las entregas.
+## 🛠 Stack Tecnológico (Final)
 
-### 4. Sección de Noticias
-- Publicación de artículos relacionados con el club.
-- Visualización de noticias en formato de lista o detalle.
+### Frontend
+- **Next.js** (Plataforma principal)
+- **Astro** (Sitio público inicial)
 
-### 5. Interfaz de Usuario (Frontend)
-- Navegación intuitiva y diseño atractivo con React.
-- Compatibilidad con dispositivos móviles y navegadores modernos.
+### Backend
+- **FastAPI** (Servicios principales)
+- **PostgreSQL** (Base de datos)
 
-## Instalación y Configuración
-1. **Clonar el repositorio:**
-   ```sh
-   git clone https://github.com/ClubCrecimientoTecnologico-UAH/CTHUB
-   cd CTHUB
-   ```
+### Complementos
+- **JWT** (Autenticación)
+- **Docker** (Contenedorización)
+- **Nginx** (Reverse proxy)
 
-2. **Configurar el Backend (FastAPI):**
-   ```sh
-   cd backend
-   python -m venv venv
-   source venv/bin/activate  # En Windows usar: venv\Scripts\activate
-   pip install -r requirements.txt
-   uvicorn main:app --reload
-   ```
+## 🎯 Objetivos
 
-3. **Configurar el Frontend (React):**
-   ```sh
-   cd frontend
-   npm install
-   npm start
-   ```
+### General
+Centralizar la gestión de contenidos, actividades y noticias del club.
 
-4. **Configurar la Base de Datos (PostgreSQL):**
-   ```sh
-   docker-compose up -d
-   ```
+### Específicos
+- [ ] Landing page informativa (Fase 1)
+- [ ] Sistema de publicación de noticias (Fase 2)
+- [ ] Autenticación de usuarios (miembros vs administradores)
+- [ ] Gestión educativa (cursos, materiales, horarios)
+- [ ] Sistema de tareas integrable (aprovechando solución existente)
+- [ ] Dashboard de progreso para estudiantes
 
-## Contribución
-Las contribuciones al proyecto son bienvenidas. Para colaborar:
-1. Hacer un fork del repositorio.
-2. Crear una rama con la nueva funcionalidad o mejora.
-3. Enviar un Pull Request.
+## 📬 Contribución
+Las contribuciones son bienvenidas. Para colaborar:
+1. Haz fork del repositorio
+2. Crea una rama con tu funcionalidad (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -m 'Añade nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-## Licencia
-Este proyecto está bajo la licencia MIT.
-
+## 📜 Licencia
+MIT License
