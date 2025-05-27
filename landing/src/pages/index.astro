@@ -1,11 +1,191 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// Importaciones básicas
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Hero Banner (Slider simplificado) -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1>Club Crecimiento Tecnológico</h1>
+      <p>Innovando Hoy para el Crecimiento del Mañana</p>
+      <a href="#contacto" class="btn-cta">Únete al club</a>
+    </div>
+  </section>
+
+  <!-- Tarjetas destacadas -->
+  <div class="features-container">
+    <div class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h3>Cursos y Talleres</h3>
+      <p>Aprende tecnologías emergentes con expertos</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">💻</div>
+      <h3>Proyectos Tecnológicos</h3>
+      <p>Desarrolla soluciones reales en equipo</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Competencias</h3>
+      <p>Participa en hackathones y desafíos</p>
+    </div>
+  </div>
+
+  <!-- Sobre el Club -->
+  <section class="about-section">
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <div class="about-grid">
+      <div class="about-item">
+        <h3>Misión</h3>
+        <p>Fomentar el desarrollo y la formación de sus miembros en áreas tecnológicas, creando espacios
+		de aprendizaje, desarrollo de proyectos y la participación activa en actividades tecnológicas
+		tanto dentro como fuera del ámbito universitario.</p>
+      </div>
+      <div class="about-item">
+        <h3>Visión</h3>
+        <p>Convertirse en un referente dentro de la universidad en la formación y promoción de tecnologías
+		emergentes, creando una comunidad de estudiantes con habilidades competitivas para el
+		mundo laboral y el emprendimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Noticias destacadas -->
+  <section class="news-section">
+    <h2 class="section-title">Últimas Noticias</h2>
+    <div class="news-grid">
+      <article class="news-card">
+        <h3>Inicio de nuevos talleres</h3>
+        <p>Mayo 2025</p>
+        <a href="#">Leer más →</a>
+      </article>
+      <!--<article class="news-card">
+        <h3>Resultados Hackathon 2024</h3>
+        <p>10 Mayo 2024</p>
+        <a href="#">Leer más →</a>
+      </article><!--
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="contact-section">
+
+  <div class="contacto-container">
+    <div class="contacto-card">
+		<h2 class="section-title">Contacto</h2>
+    	<div class="contact-grid">
+      		<form class="contact-form">
+        		<input type="text" placeholder="Nombre" required>
+       			<input type="email" placeholder="Email" required>
+				<br>
+        		<textarea placeholder="Mensaje"></textarea>
+        		<button type="submit">Enviar</button>
+      		</form>
+      		<div class="contact-info">
+        		<p>📍 Universidad Alejandro de Humboldt, Sede Dos Caminos, Caracas</p>
+        		<p>📧 clubcrecimientotecnologico@unihumboldt.edu.ve</p>
+        		<p>📱 @crecimiento_tecnologico en Instagram</p>
+			</div>
+		</div>
+    </div>
+</div>
+  </section>
 </Layout>
+
+<style>
+  /* Estilos base */
+  :root {
+    --color-primary:rgb(15, 1, 26);
+    --color-secondary: #3c459c;
+    --color-text: #33;
+    --color-light: #f8f9fa;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  /* Hero Banner */
+  .hero-banner {
+    background: linear-gradient(rgba(38, 8, 55, 0.8), rgb(73, 28, 112)), 
+                url('/public/img/banner-club.jpg');
+    background-size: cover;
+    color: white;
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+  
+  /* Botones */
+  .btn-cta {
+    background: var(--color-secondary);
+    color: var(--color-text);
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  /* Secciones */
+  .section-title {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+  }
+  
+  /* Tarjetas */
+  .features-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 1rem;
+  }
+  
+  .feature-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    width: 280px;
+    text-align: center;
+  }
+
+    .contacto-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 1rem;
+  }
+  
+  .contacto-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .features-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+</style>
