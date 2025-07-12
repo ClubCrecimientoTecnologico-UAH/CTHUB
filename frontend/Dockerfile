@@ -1,5 +1,5 @@
 # Dockerfile para frontend Next.js
-FROM node:20-alpine
+FROM node:20-slim
 
 # Establecer el directorio de trabajo
 WORKDIR /app
