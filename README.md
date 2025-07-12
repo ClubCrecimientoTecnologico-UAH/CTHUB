@@ -45,10 +45,7 @@ frontend/
 │   ├── codelink/               ← Comunidad para Programadores
 │   ├── cthub-landing/          ← Landing principal
 │   ├── english-club/           ← Página del Club de Inglés
-│   ├── login/                  ← Login
-│   └── components/
-│       ├── Footer.tsx
-│       └── Header.tsx
+│   └── login/                  ← Login
 ├── styles/
 │   └── globals.css
 ├── public/
