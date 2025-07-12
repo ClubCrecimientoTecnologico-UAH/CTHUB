@@ -1,0 +1,1 @@
+# Configuración general (env vars)

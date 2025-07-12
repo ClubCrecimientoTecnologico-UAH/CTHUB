@@ -1,0 +1,45 @@
+# Entorno virtual de Python
+/backend/.venv/
+
+# Archivos de configuración y variables de entorno
+.env
+
+# Archivos de migraciones y base de datos
+backend/alembic/versions/
+backend/app/__pycache__/
+backend/app/**/*.pyc
+backend/app/**/*.pyo
+backend/app/**/*.pyd
+backend/app/**/__pycache__/
+
+# Archivos temporales y logs
+*.log
+*.sqlite3
+*.db
+
+# Docker
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.coverage
+backend/htmlcov/
+backend/.cache/
+
+# Node.js y frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Viejo CTHub
+.CTHUB_old
