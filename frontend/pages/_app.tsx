@@ -1,7 +1,4 @@
-"use client";
-
-import React from "react";
-import "./landing.css"; // Asegúrate de tener los estilos en este archivo
+import "@/styles/globals.css";
 
 export default function LandingPage() {
   return (
@@ -11,7 +8,7 @@ export default function LandingPage() {
         <div className="hero-content">
           <h1>Club Crecimiento Tecnológico</h1>
           <p>Innovando Hoy para el Crecimiento del Mañana</p>
-          <a href="#contacto" className="btn-cta">Únete al club</a>
+          <a href="#contacto" className="btn-cta">¡Únete al club!</a>
         </div>
       </section>
 

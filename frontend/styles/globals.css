@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+:root {
+  --color-primary: #0f011a;
+  --color-secondary: #3c459c;
+  --color-text: #333;
+  --color-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-dark-overlay: rgba(38, 8, 55, 0.8);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-light);
+  line-height: 1.6;
+}
+
+/* Hero Banner */
+.hero-banner {
+  background: linear-gradient(var(--color-dark-overlay), rgb(73, 28, 112)),
+    url('/img/banner-club.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+/* CTA Button */
+.btn-cta {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Sección */
+.section-title {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 3rem;
+}
+
+/* Features */
+.features-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+
+.feature-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 280px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* About Section */
+.about-section {
+  background: var(--color-light);
+  padding: 3rem 1rem;
+}
+
+.about-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-item {
+  width: 300px;
+  color: var(--color-text);
+}
+
+/* Noticias */
+.news-section {
+  background: var(--color-white);
+  padding: 3rem 1rem;
+}
+
+.news-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.news-card {
+  background: #ffffff;
+  color: #222;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.news-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.news-card p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.news-card a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* Contacto */
+.contact-section {
+  background: var(--color-white);
+  padding: 3rem 1rem;
+}
+
+.contacto-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contacto-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 80%;
+  text-align: center;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: var(--color-text);
+}
+
+.contact-form button {
+  padding: 0.5rem 1.5rem;
+  background: var(--color-secondary);
+  border: none;
+  color: var(--color-white);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-info {
+  margin-top: 1rem;
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-container,
+  .about-grid,
+  .contacto-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
