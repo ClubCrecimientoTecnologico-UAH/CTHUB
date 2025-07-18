@@ -13,17 +13,17 @@ services:
       - ./backend:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
-  frontend:
-    build: ./frontend
-    container_name: cthub-frontend
-    restart: always
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-    environment:
-      - NODE_ENV=development
-    command: npm run dev
+  # frontend:
+  #   build: ./frontend
+  #   container_name: cthub-frontend
+  #   restart: always
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend:/app
+  #   environment:
+  #     - NODE_ENV=development
+  #   command: npm run dev
 
   db:
     image: postgres:16
@@ -37,6 +37,7 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+      - ./backend/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
 
 volumes:
   db_data:
