@@ -90,7 +90,7 @@ export default function CodelinkIndex() {
         <section className="md:w-1/2 mt-10 md:mt-0 flex justify-center">
           <div className="relative w-80 h-[420px] rounded-lg overflow-hidden shadow-lg glow-neon">
             <Image
-              src="/codelink-pixel-art.png"
+              src="codelink-pixel-art.png"
               alt="Pixel art of a programmer at a desk"
               fill
               style={{ objectFit: 'cover' }}
