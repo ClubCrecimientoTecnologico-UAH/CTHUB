@@ -642,10 +642,6 @@ const Header = ({ showSection, toggleMobileNav }: { showSection: (section: strin
       </ul>
     </nav>
     <div className="user-actions">
-      <div className="notification-bell">
-        <i className="fas fa-bell"></i>
-        <span className="notification-count">3</span>
-      </div>
       <div className="user-profile">
         <img alt="Usuario" className="user-avatar" src="https://i.pinimg.com/736x/3c/ae/07/3cae079ca0b9e55ec6bfc1b358c9b1e2.jpg"/>
         <div className="user-name">DevUser</div>

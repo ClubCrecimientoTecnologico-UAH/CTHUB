@@ -677,6 +677,29 @@ body {
   box-shadow: 0 0 15px var(--neon-glow);
 }
 
+/* Vinotinto theme platform link styles */
+.vinotinto-theme .platform-link {
+  color: white;
+  border-color: white;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.3),
+    0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.vinotinto-theme .platform-link:hover {
+  background: white;
+  color: #5c0011;
+  text-shadow: none;
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4);
+}
+
 @media (min-width: 768px) {
   .platforms-container {
     flex-direction: row;
