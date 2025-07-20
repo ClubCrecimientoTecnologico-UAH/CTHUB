@@ -778,6 +778,7 @@ const ProgrammersSection = () => {
 };
 
 // Componente de Cursos
+// Cambiado para que la lista se genere de manera dinamica | David Diaz
 const CoursesSection = ({ showCourseInfo, courseInput, selectedCourse }: { 
   showCourseInfo: (courseId: number) => void; 
   courseInput: string; 
