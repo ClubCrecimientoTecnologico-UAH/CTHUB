@@ -12,8 +12,12 @@ class Course(Base):
     end_date = Column(Date, nullable=False)
     status = Column(String(20), nullable=False)
     instructor_id = Column(Integer)
+    instructor_name = Column(String(100)) 
     professor_id = Column(Integer)
     created_at = Column(TIMESTAMP, server_default=func.now())
     updated_at = Column(TIMESTAMP, onupdate=func.now())
     duration = Column(Integer)
     students = Column(Integer)
+    image = Column(String(255)) 
+
+    

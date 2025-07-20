@@ -1,5 +1,44 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
+import { fetchCourses } from '../../api/courses';
+
+// Agregado consulta al back y generacion de array de cursos segun lo que exista en la DB | David Diaz
+
+interface FormattedCourse {
+  title: string;
+  description: string;
+  instructor: string;
+  duration: string;
+  students: string;
+  image: string;
+}
+
+export const getFormattedCourses = async (): Promise<Record<number, FormattedCourse>> => {
+  try {
+    const courses = await fetchCourses();
+    
+    // Transformar los datos al formato deseado
+    const formattedCourses: Record<number, FormattedCourse> = {};
+    
+    courses.forEach((course, index) => {
+      const courseNumber = index + 1; // Para que empiece en 1 en lugar de 0
+      
+      formattedCourses[courseNumber] = {
+        title: course.title,
+        description: course.description,
+        instructor: course.instructor_name || 'Instructor no asignado',
+        duration: `${course.duration} horas`,
+        students: `${course.students} estudiantes`,
+        image: course.image
+      };
+    });
+    
+    return formattedCourses;
+  } catch (error) {
+    console.error('Error al obtener y formatear los cursos:', error);
+    throw error;
+  }
+};
 
 function App() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -12,57 +51,18 @@ function App() {
   
 
   // MRC PERSONA IV ES INCREIBLE WN
+  // Agreed con el comentario de arriba (No he jugado ningun persona) Att. David Diaz
+
   // Datos de los cursos
-  const courses = {
-    1: {
-      title: "Python Básico",
-      description: "Aprende los fundamentos de Python desde cero. Ideal para principiantes que quieren adentrarse en el mundo de la programación. Este curso cubre sintaxis, estructuras de datos, funciones y programación orientada a objetos.",
-      instructor: "Prof. Pana del club",
-      duration: "40 horas",
-      students: "11 estudiantes",
-      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-    },
-    2: {
-      title: "Programación Web Completa",
-      description: "Domina HTML, CSS, JavaScript y frameworks modernos como React y Node.js para crear aplicaciones web completas. Aprende a desarrollar tanto frontend como backend en un solo curso integral.",
-      instructor: "Prof. Pana del club",
-      duration: "20 horas",
-      students: "10 estudiantes",
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-    },
-    3: {
-      title: "PostgreSQL Avanzado",
-      description: "Aprende a diseñar, optimizar y administrar bases de datos PostgreSQL para aplicaciones de alto rendimiento. Cubre índices, particionamiento, replicación y técnicas avanzadas de optimización.",
-      instructor: "Prof. Pana del club",
-      duration: "35 horas",
-      students: "12 estudiantes",
-      image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-    },
-    4: {
-      title: "Gestión de Proyectos de Software",
-      description: "Aprende metodologías ágiles, gestión de equipos y buenas prácticas para liderar proyectos tecnológicos exitosos. Incluye Scrum, Kanban, estimación de tiempos y gestión de riesgos.",
-      instructor: "Prof. Carlos Williams",
-      duration: "45 horas",
-      students: "20 estudiantes",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-    },
-    5: {
-      title: "Machine Learning Avanzado",
-      description: "Profundiza en técnicas avanzadas de machine learning como redes neuronales, deep learning y procesamiento de lenguaje natural. Aprende a implementar modelos complejos con TensorFlow y PyTorch.",
-      instructor: "Dra. Proximo pana del club",
-      duration: "10 horas",
-      students: "10 estudiantes",
-      image: "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=1321&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    6: {
-      title: "Desarrollo de Videojuegos con Unity",
-      description: "Crea juegos 2D y 3D profesionales usando Unity. Aprende diseño de niveles, física de juegos, inteligencia artificial para NPCs y técnicas de optimización para múltiples plataformas.",
-      instructor: "Prof. pana del club",
-      duration: "20 horas",
-      students: "30 estudiantes",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-    }
-  };
+  // Cambiado de un array quemado a un llamado a una funcion para generar array dinamicamente | David Diaz
+
+  const [courses, setCourses] = useState<Record<number, FormattedCourse>>({});
+
+  useEffect(() => {
+    getFormattedCourses()
+      .then(setCourses)
+      .catch(console.error);
+  }, []);
 
   // Datos de recursos
   const resources = {
