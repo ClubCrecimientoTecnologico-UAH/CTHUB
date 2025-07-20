@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-
+//qlq mrc, todo fino?, sabes, hablando con los compas, acoordamos que a este peo le pondremos derechos de autor, igual, ningun abogado nos esta supporteando, asi que por lo menos podre nuestros nombres en cada parte de aqui aunque sea pa ladillar la paciencia
 interface Particle {
   x: number;
   y: number;
@@ -13,7 +13,7 @@ interface Particle {
   tx: number;
   ty: number;
 }
-
+//PD: Final fantasy XV tiene tremendo gameplay, aunque el mundo esta un poco vacio, es un juegazo, la banda sonora es sexo
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [theme, setTheme] = useState('');
@@ -21,7 +21,7 @@ export default function Home() {
   const [showWelcomeText, setShowWelcomeText] = useState(true);
   const particlesContainerRef = useRef<HTMLDivElement>(null);
 
-  // Inicializar partículas
+  // Inicializar partículas I honestamente estuve buscando bastantes recursos en Internet para esta parte, creeme, que los bugs aqui se pusieron chistosos xddddddd
   useEffect(() => {
     if (!particlesContainerRef.current) return;
     
@@ -37,7 +37,7 @@ export default function Home() {
     let canvasSize = { w: 0, h: 0 };
     const dpr = window.devicePixelRatio || 1;
     
-    // Parámetros
+    // Parámetros a utilizar
     const quantity = window.innerWidth < 768 ? 50 : 100;
     const staticity = 50;
     const ease = 50;
@@ -120,7 +120,7 @@ export default function Home() {
         p.tx *= 0.8;
         p.ty *= 0.8;
         
-        // Si la partícula sale del canvas, la reposicionamos
+        // aqui si la particula de sale del canvas reposicionas, mano, una cosa, aqui antes de seguir colocando comentarios diciendo lo obvio, te vacilaste que el juego de Dalas Review tiene un malware?, naaaawebona
         if (p.x < -p.size || p.x > canvasSize.w + p.size || p.y < -p.size || p.y > canvasSize.h + p.size) {
           p.x = Math.random() * canvasSize.w;
           p.y = Math.random() * canvasSize.h;
@@ -152,7 +152,7 @@ export default function Home() {
     
     init();
     
-    // Limpieza
+    
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('mousemove', handleMouseMove);
@@ -162,7 +162,7 @@ export default function Home() {
     };
   }, [particlesContainerRef]);
 
-  // Efecto para ocultar splash screen después de 5 segundos
+  // Esto es para que la terminal de bienvenida de CTHUB desaparezca despues de 5 segundos, es que era muy invasivo xdddd
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -194,7 +194,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Efecto para cambiar fuente del título
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       const title = document.getElementById('cthubTitle');
@@ -266,7 +266,7 @@ export default function Home() {
           </div>
         )}
         
-        {/* Botón para volver arriba */}
+        {/* Botón para volver arriba, super sofisticado vacila JAJAJAJA */}
         <div 
           className="back-to-top" 
           id="backToTop" 
@@ -308,7 +308,7 @@ export default function Home() {
               <p className="subtitle">Conecta con nuestras plataformas internas, gestiona tu acceso y forma parte de nuestra comunidad tecnológica.</p>
               <button className="cta-button" onClick={scrollToPlatforms}>Comenzar ahora</button>
               
-              {/* Espaciado antes de las plataformas */}
+              {/* Espaciado antes de las plataformas, esto es especialmente necesario porque al principio el diseño se veia peruanisimo xddddd mas marron y no nace */}
               <div style={{ marginTop: '4rem' }}>
                 <h2 className="section-title">Nuestras Plataformas</h2>
                 <div className="platforms-container">
@@ -316,7 +316,7 @@ export default function Home() {
                     <div className="platform-content">
                       <h2>CodeLink</h2>
                       <p>Plataforma para desarrolladores y entusiastas de la tecnología donde podrás colaborar en proyectos, resolver desafíos técnicos y aprender nuevas tecnologías.</p>
-                      <a href="#" className="platform-link">Acceder a CodeLink</a>
+                      <a href="/codelink" className="platform-link">Acceder a CodeLink</a>
                     </div>
                   </div>
                   <div className="platform-card englishclub">
@@ -348,7 +348,7 @@ export default function Home() {
             </div>
           </section>
           
-          {/* Sección de Proyectos */}
+          {/* Sección de Proyectos, sabes la parte de la hackathon, esto es especialmente chistoso porque estoy aplicando la de "No he ganado la hackethon en la ucab?, creeare mi propio concurso con Persona 5 y Mujerzuelas" */}
           <section id="projects" className="section">
             <h2 className="section-title">Proyectos</h2>
             <div className="projects-grid">
@@ -367,7 +367,7 @@ export default function Home() {
             </div>
           </section>
           
-          {/* Sección de Miembros */}
+          {/* Sección de Miembros, aqui estamos los reales, el resto es monte y culebra */}
           <section id="team" className="section">
             <h2 className="section-title">Nuestro Equipo</h2>
             <div className="team-members">
@@ -384,13 +384,13 @@ export default function Home() {
                 <p>Coordinador de Proyectos</p>
               </div>
               <div className="member">
-                <h4>David</h4>
+                <h4>David Díaz</h4> 
                 <p>Vicepresidente</p>
               </div>
             </div>
           </section>
           
-          {/* Texto de bienvenida en la parte inferior izquierda */}
+          {/* Texto de bienvenida en la parte inferior izquierda, esto lo hice para un efecto mas ciberpunk */}
           {showWelcomeText && (
             <div className="welcome-text" id="welcomeText">
               <div>{'>'} Bienvenido a CTHUB <span className="loading-dots"></span></div>

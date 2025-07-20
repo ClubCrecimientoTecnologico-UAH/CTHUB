@@ -1,5 +1,5 @@
 :root {
-  /* Variables para modo oscuro (neon) */
+  /* Variables para modo oscuro (neon) (esto fue un  desbole mrc...)*/ 
   --primary-color: #e100ff;
   --secondary-color: #8a00ff;
   --background-color: #0d0018;
@@ -10,13 +10,15 @@
   --box-shadow: rgba(138, 0, 255, 0.2);
   --neon-glow: 0 0 10px rgba(225, 0, 255, 0.4);
   --transition-speed: 0.4s;
+  --glow-strong: 0 0 25px #e100ff, 0 0 50px #8a00ff;
+  --container-shadow: 0 0 40px 5px rgba(225,0,255,0.15);
 }
 
 /* Modo vinotinto/negro */
 .vinotinto-theme {
   --primary-color: #5c0011;
   --secondary-color: #8a0019;
-  --background-color: #0a0a0a;
+  --background-color: #5c0011; 
   --text-color: #f0f0f0;
   --accent-color: #d9b3b3;
   --card-bg: rgba(15, 0, 0, 0.7);
@@ -29,7 +31,7 @@
 .monochrome-theme {
   --primary-color: #fff;
   --secondary-color: #000;
-  --background-color: #000;
+  --background-color: #000; 
   --text-color: #fff;
   --accent-color: #ccc;
   --card-bg: rgba(0, 0, 0, 0.8);
@@ -71,7 +73,7 @@
 
 .monochrome-theme .nav-links a:hover,
 .monochrome-theme .nav-links a.active {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .monochrome-theme .theme-toggle:hover {
@@ -95,7 +97,7 @@
   box-shadow: 0 0 10px rgba(92, 0, 17, 0.8);
 }
 
-/* Resto del CSS permanece igual */
+/* literalmente esto fue en lo que mas me tarde */
 * {
   margin: 0;
   padding: 0;
@@ -112,9 +114,10 @@ body {
   min-height: 100vh;
   position: relative;
   scroll-behavior: smooth;
+  box-shadow: inset 0 0 120px 0 #e100ff33;
 }
 
-/* Pantalla de inicio */
+
 .splash-screen {
   position: fixed;
   top: 0;
@@ -161,7 +164,7 @@ body {
     0 0 15px var(--secondary-color);
 }
 
-/* Efectos neon para títulos según el tema */
+/* Efectos para cada tema */
 /* Tema por defecto (púrpura) */
 .cthub-title {
   color: white;
@@ -191,7 +194,7 @@ body {
     0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-/* Efectos neon para otros títulos importantes */
+/* nunca esta paja me paro bolas, el modo purpura siempre se queda negro en los titulos */
 .main-title {
   color: white;
   text-shadow: 
@@ -238,7 +241,7 @@ body {
     0 0 15px rgba(255, 255, 255, 0.4);
 }
 
-/* Contenido principal */
+
 .container {
   position: relative;
   width: 100%;
@@ -255,7 +258,7 @@ body {
   opacity: 1;
 }
 
-/* Grid Retro Cyberpunk */
+
 .retro-grid {
   pointer-events: none;
   position: absolute;
@@ -271,6 +274,7 @@ body {
   inset: 0;
   transform: rotateX(65deg);
 }
+
 
 .retro-grid .grid-animation {
   position: absolute;
@@ -288,6 +292,32 @@ body {
   filter: drop-shadow(0 0 3px var(--primary-color));
 }
 
+.vinotinto-theme .retro-grid .grid-animation {
+  background-image: 
+    linear-gradient(to right, #ff4d6d 1px, transparent 0),
+    linear-gradient(to bottom, #ff4d6d 1px, transparent 0);
+}
+
+.monochrome-theme .retro-grid .grid-animation {
+  background-image: 
+    linear-gradient(to right, #fff 1px, transparent 0),
+    linear-gradient(to bottom, #fff 1px, transparent 0);
+}
+
+.light-theme .retro-grid .grid-animation {
+  background-image: 
+    linear-gradient(to right, #222 1px, transparent 0),
+    linear-gradient(to bottom, #222 1px, transparent 0);
+}
+
+
+
+.dark-theme .retro-grid .grid-animation {
+  background-image: 
+    linear-gradient(to right, #e100ff 1px, transparent 0),
+    linear-gradient(to bottom, #e100ff 1px, transparent 0);
+}
+
 .retro-grid .gradient-overlay {
   position: absolute;
   inset: 0;
@@ -303,7 +333,7 @@ body {
   }
 }
 
-/* Header */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -392,7 +422,7 @@ body {
   width: 100%;
 }
 
-/* Botón de cambio de tema */
+/* Botón para cambiar el tema de CTHUB */
 .theme-toggle {
   background: transparent;
   border: 1px solid var(--accent-color);
@@ -423,7 +453,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Contenido principal */
+
 .main-content {
   position: relative;
   z-index: 15;
@@ -468,6 +498,7 @@ body {
   position: relative;
   overflow: hidden;
   margin-top: 1.5rem;
+  box-shadow: 0 0 30px #e100ff, 0 0 60px #8a00ff;
 }
 
 .cta-button:hover {
@@ -512,7 +543,7 @@ body {
   box-shadow: 0 0 8px var(--neon-glow);
 }
 
-/* NUEVO: Pantallas completas para plataformas */
+
 .platforms-container {
   display: flex;
   flex-direction: column;
@@ -576,7 +607,7 @@ body {
   transition: all 0.5s ease 0.2s;
 }
 
-/* Efectos neon específicos para títulos de plataformas */
+
 .platform-content h2 {
   color: white;
   text-shadow: 
@@ -658,7 +689,7 @@ body {
   }
 }
 
-/* Misión y Visión */
+
 .mission-vision {
   display: flex;
   flex-wrap: wrap;
@@ -692,7 +723,7 @@ body {
   text-shadow: var(--neon-glow);
 }
 
-/* Efectos neon para títulos de misión y visión */
+
 .mission h3, .vision h3 {
   color: white;
   text-shadow: 
@@ -725,7 +756,7 @@ body {
   text-align: left;
 }
 
-/* Equipo */
+
 .team-section {
   margin: 2rem auto;
   max-width: 1200px;
@@ -777,7 +808,7 @@ body {
   text-shadow: var(--neon-glow);
 }
 
-/* Efectos neon para nombres de miembros del equipo */
+
 .member h4 {
   color: white;
   text-shadow: 
@@ -807,7 +838,7 @@ body {
   font-style: italic;
 }
 
-/* Footer */
+/* al fin... me voy */
 .footer {
   padding: 1.5rem;
   text-align: center;
@@ -845,7 +876,7 @@ body {
   text-shadow: var(--neon-glow);
 }
 
-/* Texto de bienvenida */
+
 .welcome-text {
   position: fixed;
   bottom: 20px;
@@ -865,7 +896,7 @@ body {
   box-shadow: 
     0 0 10px var(--neon-glow),
     0 0 20px var(--box-shadow);
-  transition: opacity 0.5s ease; /* Agregado para animación de desaparición */
+  transition: opacity 0.5s ease; 
 }
 
 .loading-dots {
@@ -887,7 +918,7 @@ body {
   100% { content: '.'; }
 }
 
-/* Efecto de escaneo */
+/* Efecto de escaneo sacado de internet y traducido por mi xddddd */
 .scan-line {
   position: absolute;
   top: 0;
@@ -916,7 +947,7 @@ body {
   100% { top: 100%; }
 }
 
-/* Efecto de distorsión */
+
 .distortion {
   position: absolute;
   top: 0;
@@ -1021,9 +1052,9 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Secciones de navegación */
+
 .section {
-  padding: 4rem 2rem 2rem; /* Más compacto */
+  padding: 4rem 2rem 2rem; 
   max-width: 1200px;
   margin: 0 auto;
   min-height: 80vh;
@@ -1091,7 +1122,7 @@ body {
   line-height: 1.6;
 }
 
-/* Botón de volver arriba */
+
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -1117,7 +1148,7 @@ body {
   box-shadow: 0 0 15px var(--neon-glow);
 }
 
-/* Responsive */
+
 @media (max-width: 992px) {
   .nav-links {
     gap: 1rem;
@@ -1178,3 +1209,271 @@ body {
     font-size: 3.5rem;
   }
 } 
+
+
+:root {
+ 
+  --glow-strong: 0 0 25px #e100ff, 0 0 50px #8a00ff;
+  --container-shadow: 0 0 40px 5px rgba(225,0,255,0.15);
+}
+
+body {
+  box-shadow: inset 0 0 120px 0 #e100ff33;
+}
+
+.cthub-title, .main-title, .section-title {
+  text-shadow:
+    0 0 10px #e100ff,
+    0 0 20px #8a00ff,
+    var(--glow-strong);
+}
+
+.cta-button {
+  box-shadow: 0 0 30px #e100ff, 0 0 60px #8a00ff;
+}
+
+.container, .main-content, .project-card, .about-content, .team-section, .member {
+  box-shadow: var(--container-shadow);
+}
+
+
+.vinotinto-theme body {
+  background: linear-gradient(135deg, #5c0011 0%, #8a0019 100%) !important;
+  box-shadow: inset 0 0 120px 0 #ff4d6d33;
+}
+
+.vinotinto-theme .cthub-title, .vinotinto-theme .main-title, .vinotinto-theme .section-title {
+  text-shadow:
+    0 0 10px #ff4d6d,
+    0 0 20px #8a0019,
+    0 0 40px #ff4d6d;
+}
+
+.vinotinto-theme .cta-button {
+  box-shadow: 0 0 30px #ff4d6d, 0 0 60px #8a0019;
+}
+
+.vinotinto-theme .container, .vinotinto-theme .main-content, .vinotinto-theme .project-card, .vinotinto-theme .about-content, .vinotinto-theme .team-section, .vinotinto-theme .member {
+  box-shadow: 0 0 40px 5px #ff4d6d33;
+}
+
+
+.monochrome-theme body {
+  background: #000 !important;
+  box-shadow: inset 0 0 120px 0 #fff2;
+}
+
+.monochrome-theme .cthub-title, .monochrome-theme .main-title, .monochrome-theme .section-title {
+  text-shadow:
+    0 0 15px #fff,
+    0 0 30px #fff,
+    0 0 60px #fff;
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.monochrome-theme .cta-button {
+  box-shadow: 0 0 30px #fff, 0 0 60px #fff;
+  filter: brightness(1.2);
+}
+
+.monochrome-theme .container, .monochrome-theme .main-content, .monochrome-theme .project-card, .monochrome-theme .about-content, .monochrome-theme .team-section, .monochrome-theme .member {
+  box-shadow: 0 0 40px 5px #fff2;
+}
+
+.monochrome-theme .cthub-title, .monochrome-theme .main-title, .monochrome-theme .section-title {
+  position: relative;
+}
+.monochrome-theme .cthub-title::after, .monochrome-theme .main-title::after, .monochrome-theme .section-title::after {
+  content: '';
+  position: absolute;
+  left: 2px; top: 2px; right: 0; bottom: 0;
+  color: #fff4;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+
+.purple-theme body {
+  background: radial-gradient(ellipse at top left, #2d0036 0%, #0d0018 80%) fixed;
+  animation: purple-bg-move 10s linear infinite alternate;
+}
+@keyframes purple-bg-move {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+.purple-theme .cthub-title, .purple-theme .main-title, .purple-theme .section-title {
+  text-shadow:
+    0 0 20px #e100ff,
+    0 0 40px #8a00ff,
+    0 0 80px #e100ff;
+  color: #fff;
+  letter-spacing: 6px;
+}
+.purple-theme .cta-button {
+  background: linear-gradient(90deg, #e100ff 0%, #8a00ff 100%);
+  color: #fff;
+  border: 2px solid #e100ff;
+  box-shadow: 0 0 40px #e100ff, 0 0 80px #8a00ff;
+}
+.purple-theme .container, .purple-theme .main-content, .purple-theme .project-card, .purple-theme .about-content, .purple-theme .team-section, .purple-theme .member {
+  background: rgba(45,0,54,0.7);
+  border: 1.5px solid #e100ff;
+  box-shadow: 0 0 60px 10px #e100ff44;
+}
+
+
+.vinotinto-theme body {
+  background: linear-gradient(135deg, #5c0011 0%, #8a0019 40%, #1a0005 100%) fixed;
+}
+.vinotinto-theme .cthub-title, .vinotinto-theme .main-title, .vinotinto-theme .section-title {
+  text-shadow:
+    0 0 25px #1a0005,
+    0 0 50px #5c0011,
+    0 0 80px #8a0019;
+  color: #111;
+  letter-spacing: 4px;
+}
+.vinotinto-theme .cta-button {
+  background: linear-gradient(90deg, #ff4d6d 0%, #8a0019 100%);
+  color: #fff;
+  border: 2px solid #111;
+  box-shadow: 0 0 40px #1a0005, 0 0 80px #5c0011;
+  text-shadow: 0 0 10px #111;
+}
+.vinotinto-theme .container, .vinotinto-theme .main-content, .vinotinto-theme .project-card, .vinotinto-theme .about-content, .vinotinto-theme .team-section, .vinotinto-theme .member {
+  background: rgba(92,0,17,0.7);
+  border: 1.5px solid #111;
+  box-shadow: 0 0 60px 10px #1a000544;
+  backdrop-filter: blur(3px);
+}
+
+
+.monochrome-theme body {
+  background: #000 !important;
+}
+.monochrome-theme .cthub-title, .monochrome-theme .main-title, .monochrome-theme .section-title {
+  text-shadow:
+    0 0 30px #fff,
+    0 0 60px #fff,
+    0 0 120px #fff;
+  color: #fff;
+  letter-spacing: 8px;
+  filter: brightness(1.3) contrast(1.3);
+  position: relative;
+}
+.monochrome-theme .cthub-title::before, .monochrome-theme .main-title::before, .monochrome-theme .section-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 3px; top: 3px;
+  color: #fff8;
+  z-index: -1;
+  filter: blur(2px) opacity(0.7);
+}
+.monochrome-theme .cta-button {
+  background: linear-gradient(90deg, #fff 0%, #bbb 100%);
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 50px #fff, 0 0 100px #fff;
+  text-shadow: 0 0 10px #fff;
+}
+.monochrome-theme .container, .monochrome-theme .main-content, .monochrome-theme .project-card, .monochrome-theme .about-content, .monochrome-theme .team-section, .monochrome-theme .member {
+  background: rgba(0,0,0,0.8);
+  border: 2px solid #fff;
+  box-shadow: 0 0 80px 20px #fff2;
+  backdrop-filter: blur(2px);
+}
+
+
+.vinotinto-theme body {
+  background: linear-gradient(135deg, #5c0011 0%, #8a0019 40%, #1a0005 100%) fixed;
+}
+.vinotinto-theme .cthub-title, .vinotinto-theme .main-title, .vinotinto-theme .section-title {
+  text-shadow:
+    0 0 25px #1a0005,
+    0 0 50px #5c0011,
+    0 0 80px #8a0019;
+  color: #111;
+  letter-spacing: 4px;
+}
+.vinotinto-theme .cta-button {
+  background: linear-gradient(90deg, #ff4d6d 0%, #8a0019 100%);
+  color: #fff;
+  border: 2px solid #111;
+  box-shadow: 0 0 40px #1a0005, 0 0 80px #5c0011;
+  text-shadow: 0 0 10px #111;
+}
+.vinotinto-theme .container, .vinotinto-theme .main-content, .vinotinto-theme .project-card, .vinotinto-theme .about-content, .vinotinto-theme .team-section, .vinotinto-theme .member {
+  background: rgba(92,0,17,0.7);
+  border: 1.5px solid #111;
+  box-shadow: 0 0 60px 10px #1a000544;
+  backdrop-filter: blur(3px);
+}
+
+
+.monochrome-theme .cthub-title, .monochrome-theme .main-title, .monochrome-theme .section-title {
+  text-shadow:
+    0 0 30px #fff,
+    0 0 60px #fff,
+    0 0 120px #fff;
+  color: #fff;
+  letter-spacing: 8px;
+  filter: brightness(1.3) contrast(1.3);
+  position: relative;
+}
+.monochrome-theme .cthub-title::before, .monochrome-theme .main-title::before, .monochrome-theme .section-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 3px; top: 3px;
+  color: #fff8;
+  z-index: -1;
+  filter: blur(2px) opacity(0.7);
+}
+.monochrome-theme .cta-button {
+  background: linear-gradient(90deg, #fff 0%, #bbb 100%);
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 50px #fff, 0 0 100px #fff;
+  text-shadow: 0 0 10px #fff;
+}
+.monochrome-theme .container, .monochrome-theme .main-content, .monochrome-theme .project-card, .monochrome-theme .about-content, .monochrome-theme .team-section, .monochrome-theme .member {
+  background: rgba(0,0,0,0.8);
+  border: 2px solid #fff;
+  box-shadow: 0 0 80px 20px #fff2;
+  backdrop-filter: blur(2px);
+}
+
+
+.vinotinto-theme body {
+  background: linear-gradient(135deg, #1a0005 0%, #5c0011 60%, #8a0019 100%) fixed;
+}
+.vinotinto-theme .cthub-title, .vinotinto-theme .main-title, .vinotinto-theme .section-title {
+  color: #b71c3a; 
+  text-shadow:
+    0 0 10px #b71c3a,
+    0 0 30px #8a0019,
+    0 0 60px #5c0011;
+  letter-spacing: 5px;
+}
+.vinotinto-theme, .vinotinto-theme body, .vinotinto-theme .main-content, .vinotinto-theme .about-content, .vinotinto-theme .project-card, .vinotinto-theme .team-section, .vinotinto-theme .member, .vinotinto-theme .container {
+  color: #fff;
+}
+.vinotinto-theme .container, .vinotinto-theme .main-content, .vinotinto-theme .project-card, .vinotinto-theme .about-content, .vinotinto-theme .team-section, .vinotinto-theme .member {
+  background: rgba(10,0,10,0.85);
+  border: 1.5px solid #5c0011;
+  box-shadow: 0 0 40px 10px #5c001188;
+}
+.vinotinto-theme .cta-button {
+  background: linear-gradient(90deg, #8a0019 0%, #5c0011 100%);
+  color: #fff;
+  border: 2px solid #b71c3a;
+  box-shadow: 0 0 30px #8a0019, 0 0 60px #5c0011;
+  text-shadow: 0 0 10px #b71c3a;
+}
+.vinotinto-theme .nav-links a, .vinotinto-theme .footer, .vinotinto-theme .welcome-text {
+  color: #fff;
+}
+.vinotinto-theme .nav-links a.active, .vinotinto-theme .nav-links a:hover {
+  background: rgba(183,28,58,0.15);
+  color: #b71c3a;
+  text-shadow: 0 0 8px #b71c3a;
+}
