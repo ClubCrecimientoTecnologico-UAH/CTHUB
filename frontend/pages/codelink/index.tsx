@@ -140,7 +140,9 @@ function App() {
     setSelectedCourse(null);
     setSelectedResource(null);
     setMobileNavActive(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   // seleccion de cursos 
@@ -486,11 +488,14 @@ function App() {
 
 // Componente de partículas decorativas
 const ArtParticles = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const ICON_COUNT = isMobile ? 12 : 30;
-  const COLS = Math.ceil(Math.sqrt(ICON_COUNT * (16/9))); // más columnas que filas para pantallas anchas
+  const COLS = Math.ceil(Math.sqrt(ICON_COUNT * (16/9)));
   const ROWS = Math.ceil(ICON_COUNT / COLS);
-
   const icons = [
     { class: 'fas fa-bug', color: '#00f6ff', name: 'Bug' },
     { class: 'fab fa-python', color: '#3776ab', name: 'Python' },
@@ -521,8 +526,6 @@ const ArtParticles = () => {
     { class: 'fas fa-robot', color: '#feca57', name: 'Bot' },
     { class: 'fas fa-brain', color: '#ff9ff3', name: 'AI' }
   ];
-
-  // Memoiza la generación de partículas distribuidas en cuadrícula
   const particles = useMemo(() => {
     const arr = [];
     let usedCells = new Set();
@@ -563,7 +566,7 @@ const ArtParticles = () => {
     }
     return arr;
   }, [ICON_COUNT, COLS, ROWS]);
-
+  if (!mounted) return null;
   return (
     <div className="art-particles" id="artParticles">
       {/* SVG flotante de JavaScript (Simple Icons) */}
