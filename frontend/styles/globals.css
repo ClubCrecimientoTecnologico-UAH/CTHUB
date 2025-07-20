@@ -38,7 +38,7 @@ body {
   line-height: 1.6;
 }
 
-/* Hero Banner */
+/* HUEVO CONTROL (ESTO, ESTO FUE UNA LADILLA) */
 .hero-banner {
   background: linear-gradient(var(--color-dark-overlay), rgb(73, 28, 112)),
     url('/img/banner-club.jpg');
@@ -49,7 +49,7 @@ body {
   text-align: center;
 }
 
-/* CTA Button */
+
 .btn-cta {
   background: var(--color-secondary);
   color: var(--color-white);
@@ -61,14 +61,14 @@ body {
   margin-top: 1rem;
 }
 
-/* Sección */
+
 .section-title {
   text-align: center;
   color: var(--color-primary);
   margin-bottom: 3rem;
 }
 
-/* Features */
+
 .features-container {
   display: flex;
   justify-content: center;
@@ -92,7 +92,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* About Section */
+
 .about-section {
   background: var(--color-light);
   padding: 3rem 1rem;
@@ -110,7 +110,7 @@ body {
   color: var(--color-text);
 }
 
-/* Noticias */
+/* Ay desarrollar front es facil ñiñiñi mamame errrrr we- */
 .news-section {
   background: var(--color-white);
   padding: 3rem 1rem;
@@ -156,7 +156,7 @@ body {
 }
 
 
-/* Contacto */
+
 .contact-section {
   background: var(--color-white);
   padding: 3rem 1rem;
