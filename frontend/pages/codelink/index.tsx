@@ -778,9 +778,52 @@ const ProgrammersSection = () => {
 };
 
 // Componente de Cursos
-const CoursesSection = ({ showCourseInfo, courseInput, selectedCourse }: { showCourseInfo: (courseId: number) => void; courseInput: string; selectedCourse: any }) => (
-  <section className="section-container active" id="coursesSection">
-          <h2 className="section-title" style={{
+const CoursesSection = ({ showCourseInfo, courseInput, selectedCourse }: { 
+  showCourseInfo: (courseId: number) => void; 
+  courseInput: string; 
+  selectedCourse: any 
+}) => {
+  const [courses, setCourses] = useState<Record<number, FormattedCourse>>({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadCourses = async () => {
+      try {
+        const data = await getFormattedCourses();
+        setCourses(data);
+      } catch (err) {
+        setError('Error al cargar los cursos');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCourses();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="section-container active" id="coursesSection">
+        <h2 className="section-title">Cursos Destacados</h2>
+        <div className="loading-message">Cargando cursos...</div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="section-container active" id="coursesSection">
+        <h2 className="section-title">Cursos Destacados</h2>
+        <div className="error-message">{error}</div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="section-container active" id="coursesSection">
+      <h2 className="section-title" style={{
         fontFamily: 'Josefin Sans, Arial, sans-serif',
         fontWeight: 500,
         fontSize: '2.1rem',
@@ -795,58 +838,65 @@ const CoursesSection = ({ showCourseInfo, courseInput, selectedCourse }: { showC
         paddingBottom: '1rem'
       }}>Cursos Destacados</h2>
     
-    <div className="terminal-panel-container">
-      <div className="terminal-container">
-        <div className="terminal-header">
-          <div className="terminal-title">code-resources.exe</div>
-          <div className="terminal-controls">
-            <div className="terminal-control close"></div>
-            <div className="terminal-control minimize"></div>
-            <div className="terminal-control maximize"></div>
+      <div className="terminal-panel-container">
+        <div className="terminal-container">
+          <div className="terminal-header">
+            <div className="terminal-title">code-resources.exe</div>
+            <div className="terminal-controls">
+              <div className="terminal-control close"></div>
+              <div className="terminal-control minimize"></div>
+              <div className="terminal-control maximize"></div>
+            </div>
           </div>
+          <div className="terminal-content">
+            <div className="terminal-line">{'>'} Bienvenido al sistema de recursos educativos</div>
+            <div className="terminal-line">{'>'} Selecciona un curso para ver más detalles:</div>
+            <div className="terminal-line">{'>'} </div>
+            
+            {Object.entries(courses).map(([id, course]) => (
+              <div 
+                key={id}
+                className="terminal-line option" 
+                data-value={id}
+                onClick={() => showCourseInfo(Number(id))}
+              >
+                {`> [${id}] ${course.title}`}
+              </div>
+            ))}
+            
+            <div className="terminal-line">{'>'} </div>
+            <div className="terminal-line">{'>'} Ingresa el número del curso: <span className="terminal-cursor">{courseInput || ''}</span></div>
+          </div>
+          <div className="scanline"></div>
         </div>
-        <div className="terminal-content">
-          <div className="terminal-line">{'>'} Bienvenido al sistema de recursos educativos</div>
-          <div className="terminal-line">{'>'} Selecciona un curso para ver más detalles:</div>
-          <div className="terminal-line">{'>'} </div>
-          <div className="terminal-line option" data-value="1">{'>'} [1] Python Básico</div>
-          <div className="terminal-line option" data-value="2">{'>'} [2] Programación Web Completa</div>
-          <div className="terminal-line option" data-value="3">{'>'} [3] PostgreSQL Avanzado</div>
-          <div className="terminal-line option" data-value="4">{'>'} [4] Gestión de Proyectos de Software</div>
-          <div className="terminal-line option" data-value="5">{'>'} [5] Machine Learning Avanzado</div>
-          <div className="terminal-line option" data-value="6">{'>'} [6] Desarrollo de Videojuegos con Unity</div>
-          <div className="terminal-line">{'>'} </div>
-          <div className="terminal-line">{'>'} Ingresa el número del curso: <span className="terminal-cursor">{courseInput || ''}</span></div>
+        
+        <div className="info-panel" id="courseInfo">
+          {selectedCourse ? (
+            <div className="info-panel-content">
+              <h3 className="info-panel-title">{selectedCourse.title}</h3>
+              <img src={selectedCourse.image} alt={selectedCourse.title} className="course-image"/>
+              <p className="info-panel-description">{selectedCourse.description}</p>
+              <ul className="info-panel-list">
+                <li><i className="fas fa-chalkboard-teacher"></i> Instructor: {selectedCourse.instructor}</li>
+                <li><i className="fas fa-clock"></i> Duración: {selectedCourse.duration}</li>
+                <li><i className="fas fa-user-graduate"></i> Estudiantes: {selectedCourse.students}</li>
+                <li><i className="fas fa-play-circle"></i> <a href="#" style={{color: 'var(--secondary)'}}>Ver curso completo</a></li>
+              </ul>
+            </div>
+          ) : (
+            <div className="info-panel-content">
+              <h3 className="info-panel-title">Selecciona un curso</h3>
+              <p className="info-panel-description">Usa la terminal a la izquierda para seleccionar un curso y ver su información detallada.</p>
+              <p className="info-panel-description" style={{color: 'var(--accent)', marginTop: '1rem'}}>
+                <i className="fas fa-mobile-alt"></i> En móvil: Toca cualquier opción o haz clic en el cursor para usar el teclado numérico
+              </p>
+            </div>
+          )}
         </div>
-        <div className="scanline"></div>
       </div>
-      
-      <div className="info-panel" id="courseInfo">
-        {selectedCourse ? (
-          <div className="info-panel-content">
-            <h3 className="info-panel-title">{selectedCourse.title}</h3>
-            <img src={selectedCourse.image} alt={selectedCourse.title} className="course-image"/>
-            <p className="info-panel-description">{selectedCourse.description}</p>
-            <ul className="info-panel-list">
-              <li><i className="fas fa-chalkboard-teacher"></i> Instructor: {selectedCourse.instructor}</li>
-              <li><i className="fas fa-clock"></i> Duración: {selectedCourse.duration}</li>
-              <li><i className="fas fa-user-graduate"></i> Estudiantes: {selectedCourse.students}</li>
-              <li><i className="fas fa-play-circle"></i> <a href="#" style={{color: 'var(--secondary)'}}>Ver curso completo</a></li>
-            </ul>
-          </div>
-        ) : (
-          <div className="info-panel-content">
-            <h3 className="info-panel-title">Selecciona un curso</h3>
-            <p className="info-panel-description">Usa la terminal a la izquierda para seleccionar un curso y ver su información detallada.</p>
-            <p className="info-panel-description" style={{color: 'var(--accent)', marginTop: '1rem'}}>
-              <i className="fas fa-mobile-alt"></i> En móvil: Toca cualquier opción o haz clic en el cursor para usar el teclado numérico
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // Componente de Recursos
 const ResourcesSection = ({ showResourceInfo, resourceInput, selectedResource }: { showResourceInfo: (resourceId: number) => void; resourceInput: string; selectedResource: any }) => (
