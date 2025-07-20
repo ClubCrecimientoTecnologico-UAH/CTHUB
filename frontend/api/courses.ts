@@ -8,11 +8,13 @@ interface Course {
     end_date: string;
     status: string;
     instructor_id: number;
-    professor_id: number,
-    created_at: string,
-    updated_at: string,
-    duration: number,
-    students: number
+    instructor_name: string;
+    professor_id: number;
+    created_at: string;
+    updated_at: string;
+    duration: number;
+    students: number;
+    image: string;
 }
 
 export const fetchCourses = async (): Promise<Course[]> => {
