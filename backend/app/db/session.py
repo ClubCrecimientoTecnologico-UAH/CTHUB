@@ -2,7 +2,6 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sess
 from sqlalchemy.orm import declarative_base
 import os
 
-# Configuración mejorada con timeout y pool de conexiones
 DATABASE_URL = os.getenv(
     "DATABASE_URL", 
     "postgresql+asyncpg://cthubuser:cthubpass@db:5432/cthub"
@@ -23,8 +22,6 @@ SessionLocal = async_sessionmaker(
     autoflush=False,
     class_=AsyncSession
 )
-
-Base = declarative_base()
 
 async def get_db():
     async with SessionLocal() as db:

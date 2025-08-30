@@ -8,7 +8,7 @@ class CourseRepository:
 
     async def get_course(self, course_code: str):
         result = await self.db.execute(select(Course).where(Course.code == course_code))
-        return result.scalar_one_or_none()
+        return result.scalars().first()
 
     async def get_courses(self, skip: int = 0, limit: int = 100):
         result = await self.db.execute(select(Course).offset(skip).limit(limit))
